@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace Dealership.Models 
+namespace CarDealership.Models 
 {
 
   public class Cars
   {
-    private string _makeModel;
-    private int _price;
-    private int _miles;
+    // public string MakeModel {get; set; }// new- erika
+    private static string _makeModel;
+    private static int _price;
+    private static int _miles;
 
     public Cars(string makeModel, int price, int miles)
     {
@@ -17,20 +18,14 @@ namespace Dealership.Models
       _miles = miles;
     }
 
-    private static Cars volkswagen = new Cars("1974 Volkswagen Thing", 1100, 368792);
-    private static Cars yugo = new Cars("1980 Yugo Koral", 700, 56000);
-    private static Cars ford = new Cars("1988 Ford Country Squire", 1400, 239001);
-    private static Cars amc = new Cars("1976 AMC Pacer", 400, 198000);
-    public List<Cars> CarList = new List<Cars>() { volkswagen, yugo, ford, amc };
-
-    
+    public static List<Cars> CarList { get; set; } = new List<Cars>() {  };    
 
     public string GetMakeModel()// The naming convention for a getter method is Get followed by the field name: GetNameOfProperty().
     {
       return _makeModel;
     }
 
-    public int GetPrice()
+    public static int GetPrice()
     {
       return _price;
     }
